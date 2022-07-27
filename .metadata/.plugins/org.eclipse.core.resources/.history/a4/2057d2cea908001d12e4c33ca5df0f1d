@@ -1,0 +1,6 @@
+package com.student.service;
+
+@Service
+public class StudentServiceImpl implements StudentService{
+
+}
