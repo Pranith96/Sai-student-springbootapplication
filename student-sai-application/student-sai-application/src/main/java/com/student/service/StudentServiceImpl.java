@@ -4,15 +4,19 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.student.dto.StudentDto;
 import com.student.entity.Student;
 import com.student.exceptions.StudentNotFoundException;
 import com.student.repository.StudentRepository;
 
+//@Primary
+@Profile(value = { "dev", "local", "qa", "prod" })
 @Transactional
-@Service
+@Service(value="service1")
 public class StudentServiceImpl implements StudentService {
 
 	@Autowired
@@ -37,12 +41,17 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Override
-	public Student getStudent(Integer studentId) {
+	public StudentDto getStudent(Integer studentId) {
 		Optional<Student> response = studentRepository.findById(studentId);
 		if (!response.isPresent()) {
 			throw new StudentNotFoundException("Data is not found");
 		}
-		return response.get();
+		
+		StudentDto dto = new StudentDto();
+		dto.setEmail(response.get().getEmail());
+		dto.setMobileNumber(response.get().getMobileNumber());
+		dto.setName(response.get().getName());
+		return dto;
 	}
 
 	@Override
@@ -75,8 +84,8 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public String deleteStudent(Integer studentId) {
-		Student response = getStudent(studentId);
-		//studentRepository.delete(response);
+		//Student response = getStudent(studentId);
+		// studentRepository.delete(response);
 		studentRepository.deleteById(studentId);
 		return "deleted successfully";
 	}

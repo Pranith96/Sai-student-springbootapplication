@@ -3,6 +3,7 @@ package com.student.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.student.dto.StudentDto;
 import com.student.entity.Student;
 import com.student.service.StudentService;
 
@@ -22,6 +24,7 @@ import com.student.service.StudentService;
 @RequestMapping("/student")
 public class StudentController {
 
+	@Qualifier(value="service1")
 	@Autowired
 	StudentService studentService;
 
@@ -38,14 +41,14 @@ public class StudentController {
 	}
 
 	@GetMapping("/get/{studentId}")
-	public ResponseEntity<Student> getStudents(@PathVariable("studentId") Integer studentId) {
-		Student response = studentService.getStudent(studentId);
+	public ResponseEntity<StudentDto> getStudents(@PathVariable("studentId") Integer studentId) {
+		StudentDto response = studentService.getStudent(studentId);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 
 	@GetMapping("/get/id")
-	public ResponseEntity<Student> getStudentById(@RequestParam("studentId") Integer studentId) {
-		Student response = studentService.getStudent(studentId);
+	public ResponseEntity<StudentDto> getStudentById(@RequestParam("studentId") Integer studentId) {
+		StudentDto response = studentService.getStudent(studentId);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
 

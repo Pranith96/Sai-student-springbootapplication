@@ -2,6 +2,7 @@ package com.student.service;
 
 import java.util.List;
 
+import com.student.dto.StudentDto;
 import com.student.entity.Student;
 
 public interface StudentService {
@@ -10,7 +11,7 @@ public interface StudentService {
 
 	List<Student> getStudents();
 
-	Student getStudent(Integer studentId);
+	StudentDto getStudent(Integer studentId);
 
 	List<Student> getStudentByName(String name);
 
