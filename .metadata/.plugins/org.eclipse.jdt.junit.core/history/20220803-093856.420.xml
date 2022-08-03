@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentServiceImplTest" project="student-sai-application" tests="4" started="4" failures="0" errors="0" ignored="0">
+  <testsuite name="com.student.service.StudentServiceImplTest" time="0.214" displayname="StudentServiceImplTest" uniqueid="[engine:junit-jupiter]/[class:com.student.service.StudentServiceImplTest]">
+    <testcase name="testGetStudent" classname="com.student.service.StudentServiceImplTest" time="0.102" displayname="testGetStudent()" uniqueid="[engine:junit-jupiter]/[class:com.student.service.StudentServiceImplTest]/[method:testGetStudent()]"/>
+    <testcase name="testGetStudents" classname="com.student.service.StudentServiceImplTest" time="0.034" displayname="testGetStudents()" uniqueid="[engine:junit-jupiter]/[class:com.student.service.StudentServiceImplTest]/[method:testGetStudents()]"/>
+    <testcase name="testAddStudent" classname="com.student.service.StudentServiceImplTest" time="0.023" displayname="testAddStudent()" uniqueid="[engine:junit-jupiter]/[class:com.student.service.StudentServiceImplTest]/[method:testAddStudent()]"/>
+    <testcase name="testAddStudentNull" classname="com.student.service.StudentServiceImplTest" time="0.032" displayname="testAddStudentNull()" uniqueid="[engine:junit-jupiter]/[class:com.student.service.StudentServiceImplTest]/[method:testAddStudentNull()]"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentServiceImplTest.testGetStudents" project="student-sai-application" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.student.service.StudentServiceImplTest" time="0.118" displayname="StudentServiceImplTest" uniqueid="[engine:junit-jupiter]/[class:com.student.service.StudentServiceImplTest]">
+    <testcase name="testGetStudents" classname="com.student.service.StudentServiceImplTest" time="0.118" displayname="testGetStudents()" uniqueid="[engine:junit-jupiter]/[class:com.student.service.StudentServiceImplTest]/[method:testGetStudents()]"/>
+  </testsuite>
+</testrun>
