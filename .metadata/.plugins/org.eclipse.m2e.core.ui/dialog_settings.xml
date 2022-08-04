@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\ramannpr\spring_boot_applications\springbooth2databse"/>
 			<item value="C:\Users\ramannpr\support_works\java spring boot microservices 8.30 institute\student-sai-application"/>
 		</list>
 		<list key="projectNameTemplate">

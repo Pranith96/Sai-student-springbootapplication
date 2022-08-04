@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="StudentServiceImplTest" project="student-sai-application" tests="2" started="2" failures="0" errors="0" ignored="0">
-  <testsuite name="com.student.service.StudentServiceImplTest" time="0.427" displayname="StudentServiceImplTest" uniqueid="[engine:junit-jupiter]/[class:com.student.service.StudentServiceImplTest]">
-    <testcase name="testAddStudent" classname="com.student.service.StudentServiceImplTest" time="0.364" displayname="testAddStudent()" uniqueid="[engine:junit-jupiter]/[class:com.student.service.StudentServiceImplTest]/[method:testAddStudent()]"/>
-    <testcase name="testAddStudentNull" classname="com.student.service.StudentServiceImplTest" time="0.052" displayname="testAddStudentNull()" uniqueid="[engine:junit-jupiter]/[class:com.student.service.StudentServiceImplTest]/[method:testAddStudentNull()]"/>
-  </testsuite>
-</testrun>

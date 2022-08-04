@@ -1,0 +1,72 @@
+package com.student.controller;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.student.dto.StudentDto;
+import com.student.entity.Student;
+import com.student.service.StudentServiceImpl;
+
+@ExtendWith(SpringExtension.class)
+public class StudentControllerTest {
+
+	@Mock
+	StudentServiceImpl studentServiceImpl;
+
+	@InjectMocks
+	StudentController studentController;
+
+	@Test
+	public void testCreateStudent() {
+		Student student = new Student();
+		student.setStudentId(1);
+		student.setName("ABC");
+		student.setMobileNumber("1234567890");
+		student.setEmail("abc@gmail.com");
+		student.setLoginId("abc123");
+		student.setPassword("12345678");
+
+		Mockito.when(studentServiceImpl.addStudent(student)).thenReturn("success");
+		ResponseEntity<String> response = studentController.createStudent(student);
+		assertEquals("success", response.getBody());
+	}
+
+	@Test
+	public void testGetAllStudents() {
+		List<Student> students = new ArrayList<>();
+		Student student = new Student();
+		student.setStudentId(1);
+		student.setName("ABC");
+		student.setMobileNumber("1234567890");
+		student.setEmail("abc@gmail.com");
+		student.setLoginId("abc123");
+		student.setPassword("12345678");
+		students.add(student);
+
+		Mockito.when(studentServiceImpl.getStudents()).thenReturn(students);
+		ResponseEntity<List<Student>> response = studentController.getAllStudents();
+		assertEquals(1, response.getBody().size());
+	}
+
+	@Test
+	public void testGetStudents() {
+		StudentDto student = new StudentDto();
+		student.setName("ABC");
+		student.setMobileNumber("1234567890");
+		student.setEmail("abc@gmail.com");
+
+		Mockito.when(studentServiceImpl.getStudent(1)).thenReturn(student);
+		ResponseEntity<StudentDto> response = studentController.getStudentById(1);
+		assertEquals("ABC", response.getBody().getName());
+	}
+}

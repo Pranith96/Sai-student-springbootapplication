@@ -1,0 +1,39 @@
+package com.student.controller;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import com.student.entity.Student;
+import com.student.service.StudentServiceImpl;
+
+@ExtendWith(SpringExtension.class)
+public class StudentControllerTest {
+
+	@Mock
+	StudentServiceImpl studentServiceImpl;
+	
+	@InjectMocks
+	StudentController studentController;
+	
+	@Test
+	public void testCreateStudent() {
+		Student student = new Student();
+		student.setStudentId(1);
+		student.setName("ABC");
+		student.setMobileNumber("1234567890");
+		student.setEmail("abc@gmail.com");
+		student.setLoginId("abc123");
+		student.setPassword("12345678");
+		
+		Mockito.when(studentServiceImpl.addStudent(student)).thenReturn("success");
+		ResponseEntity<String> response = studentController.createStudent(student);
+		assertEquals("Data is saved successfully", response.getBody());
+	}
+}
